@@ -221,10 +221,13 @@ public abstract class MetawidgetScaffoldBase extends BaseFacet implements Scaffo
 
          // Set new context for view generation
          context = getTemplateContext(template);
-         String name = viewBean.getName();
-         name = name.substring(0, 1).toLowerCase() + name.substring(1);
-         context.put("beanName", name);
+         String beanName = viewBean.getName();
+         beanName = beanName.substring(0, 1).toLowerCase() + beanName.substring(1);
+         String entityPropName = entity.getName();
+         entityPropName = entityPropName.substring(0, 1).toLowerCase() + entityPropName.substring(1);
+         context.put("beanName", beanName);
          context.put("entity", entity);
+         context.put("entityPropName", entityPropName);
 
          // Generate views
          String type = entity.getName().toLowerCase();
